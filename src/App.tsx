@@ -1,12 +1,20 @@
-import './App.css'
+import "./App.css";
+import BarChart from "./components/BarChart";
+import Filters from "./components/Filters";
+import Header from "./components/Header";
+import PieChart from "./components/PieChart";
+import TowersTable from "./components/TowersTable";
 
 function App() {
-
   return (
     <>
-    <h2>Cell Tower Dashboard</h2>
+      <Header />
+      <Filters />
+      <TowersTable />
+      <BarChart />
+      <PieChart />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
