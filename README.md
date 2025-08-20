@@ -1,69 +1,47 @@
-# React + TypeScript + Vite
+# Cell Tower Dashboard
+This dashboard gives you a clear view of cellular towers across different cities. You can explore detailed tower information, interact with dynamic charts, and filter data to find exactly what you need.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Table of Contents
+- Features
+- Technical Stack
+- Architecture
+- Setup and Installation
+- Usage
+- Deployed Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Home Page**: See detailed information about each city and its towers at a glance.  
+- **Interactive Charts**: Visualize tower distribution and status with interactive and dynamic charts.  
+- **Filtering**: Quickly search or filter towers by city or tower name.  
+- **Responsive Design**: Works smoothly on desktops, tablets, and mobile devices, giving a seamless experience everywhere.
 
-## Expanding the ESLint configuration
+## Technical Stack
+- **Bundler**: [Vite](https://vitejs.dev/) – a fast, modern bundler with Hot Module Replacement for rapid development.  
+- **Language**: [TypeScript](https://www.typescriptlang.org/) – helps catch errors early and ensures code safety.  
+- **Frontend**: [React](https://reactjs.org/) – builds the UI using reusable components for easier maintenance.  
+- **Charts**: [D3.js](https://d3js.org/) – creates interactive and visually appealing charts.  
+- **Styling**: SCSS – clean, modular, and maintainable styles.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Architecture
+The dashboard is designed to be **modular, maintainable, and scalable**:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Components**: Each UI element, such as tables, charts, or filters, is its own reusable React component.  
+- **State Management**: React's built-in state and props manage data efficiently across the application.  
+- **Responsive Layout**: Flexbox and media queries ensure the dashboard looks great on any screen size.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Setup and Installation:
+- Clone the project using this command:
+git clone https://github.com/HabibaaFarid/cell-tower-dashboard.git
+- Navigate to the project directory 
+- Install dependencies using this command:
+npm install
+- Lastly, you can start the project using this command:
+npm run dev
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Usage:
+Once the development server is running, you can explore the application:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+-   **Home Page**: Provides an overview of all cities and you can filter whether by tower name or city to get more detailed info.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+You can also visit the deployed website here: https://cell-tower-dashboard-beta.vercel.app/
