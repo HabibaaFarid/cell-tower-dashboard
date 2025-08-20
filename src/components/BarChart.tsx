@@ -22,7 +22,8 @@ function BarChart({ towers }: { towers: CellTower[] }) {
   const maxValue = Math.max(...result.map((item) => item.value), 1);
 
   return (
-    <div className="bar-chart">
+    <div>
+      <h4>Number of Towers per City</h4>
       <svg width={SVG_WIDTH} height={SVG_HEIGHT}>
         {result.map((item, index) => {
           const barHeight = (item.value / maxValue) * (SVG_HEIGHT - 50);
@@ -30,13 +31,20 @@ function BarChart({ towers }: { towers: CellTower[] }) {
           const y = SVG_HEIGHT - barHeight - 30;
           return (
             <g key={index}>
-              <rect x={x} y={y} width={BAR_WIDTH} height={barHeight} rx={6} />
+              <rect
+                x={x}
+                y={y}
+                width={BAR_WIDTH}
+                height={barHeight}
+                rx={6}
+                fill="#5b84d3"
+              />
               <text
                 x={x + BAR_WIDTH / 2}
                 y={y - 8}
                 textAnchor="middle"
-                fontSize={16}
-                fill="#333"
+                fontSize={14}
+                fill="#375c8c"
               >
                 {item.value}
               </text>
@@ -45,7 +53,7 @@ function BarChart({ towers }: { towers: CellTower[] }) {
                 y={SVG_HEIGHT - 10}
                 textAnchor="middle"
                 fontSize={14}
-                fill="#333"
+                fill="#375c8c"
               >
                 {item.name}
               </text>

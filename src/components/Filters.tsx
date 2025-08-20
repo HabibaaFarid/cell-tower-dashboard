@@ -31,8 +31,8 @@ function Filters({
     <div>
       <h3>Filters</h3>
       <div className="filter-section">
-        <div>
-          <label htmlFor="search">Search by tower: </label>
+        <div className="filter-item">
+          <label className="filter-item-label">Search by tower: </label>
           <input
             type="text"
             id="search"
@@ -42,8 +42,8 @@ function Filters({
             }}
           />
         </div>
-        <div>
-          <label htmlFor="cities">Filter by city: </label>
+        <div className="filter-item">
+          <label className="filter-item-label">Filter by city: </label>
           <select
             id="cities"
             value={city}

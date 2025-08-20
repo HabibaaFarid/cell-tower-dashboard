@@ -4,7 +4,7 @@ import * as d3 from "d3";
 
 const CHART_SIZE = 300;
 const OUTER_RADIUS = CHART_SIZE / 2 - 20;
-const COLORS = ["#008000", "#FF0000"];
+const COLORS = ["#b4dcfc", "#5b84d3"];
 
 function PieChart({ towers }: { towers: CellTower[] }) {
   const activeCount = useMemo(
@@ -40,6 +40,7 @@ function PieChart({ towers }: { towers: CellTower[] }) {
 
   return (
     <div>
+      <h4>Active vs Offline</h4>
       <svg width={300} height={300}>
         <g transform={`translate(${300 / 2}, ${300 / 2})`}>
           {arcs.map((arc: string | null, i: number) => {
@@ -47,6 +48,17 @@ function PieChart({ towers }: { towers: CellTower[] }) {
           })}
         </g>
       </svg>
+
+      <div className="status-wrapper">
+        <div className="status-info">
+          <div className="status-box active" />
+          <p>Active</p>
+        </div>
+        <div className="status-info">
+          <div className="status-box offline" />
+          <p>Offline</p>
+        </div>
+      </div>
     </div>
   );
 }

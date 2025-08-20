@@ -1,14 +1,14 @@
 // Variables
-$section-background-color: #e7e9eb;
+$section-background-color: #f0f5fa;
 $card-background: #fff;
 $card-border-radius: 10px;
 $card-border: 1px solid #eee;
-$table-border: 2px solid black;
-$table-cell-border: 1px solid black;
-$active-bg: #d4edda;
-$active-color: #155724;
-$offline-bg: #f8d7da;
-$offline-color: #721c24;
+$table-border: 2px solid 	#375c8c;
+$table-cell-border: 1px solid 	#375c8c;
+$active-bg: #d6eefc;
+$active-color: #0a3d62;
+$offline-bg: #c4d4e4;
+$offline-color: #1f3c88;
 
 // Mixins
 @mixin input-styling {
@@ -33,6 +33,7 @@ $offline-color: #721c24;
 #root {
   padding: 1rem 2rem;
   text-align: center;
+  color: #375c8c;
 }
 
 h3 {
@@ -77,6 +78,14 @@ h3 {
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
+  .filter-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    .filter-item-label {
+      font-size: 1.15rem;
+    }
+  }
 
   input,
   select {
@@ -91,7 +100,6 @@ h3 {
 .table {
   width: 100%;
   border: $table-border;
-  overflow-x: auto;
 
   th,
   td {
@@ -99,6 +107,7 @@ h3 {
     padding: 0.75rem;
     text-align: center;
     text-transform: capitalize;
+    background-color: white;
 
     &.active {
       background-color: $active-bg;
@@ -114,7 +123,7 @@ h3 {
     padding: 12px 15px;
     text-align: center;
     border-bottom: 1px solid #eee;
-    background-color: $card-background;
+    background-color: #eaf3f9;
   }
 }
 
@@ -122,9 +131,120 @@ h3 {
 .charts-section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 2rem;
   padding: 0 4rem;
 }
 
+.status-wrapper {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  .status-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    .status-box {
+      width: 10px;
+      height: 10px;
+
+      &.active {
+        background-color: #b4dcfc;
+      }
+      &.offline {
+        background-color: #5b84d3;
+      }
+    }
+  }
+}
+
+//---------------------------Responsive Styling----------------------------------------------
+@media (max-width: 600px) {
+  #root {
+    padding: 0.5rem;
+  }
+
+  .table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .charts-section {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .chart {
+    width: 200px;
+  }
+
+  .summary-cards-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .summary-card {
+    padding: 0;
+  }
+
+  .filter-section {
+    display: grid;
+    gap: 0.75rem;
+    justify-items: start;
+    .filter-item {
+      display: grid;
+    }
+  }
+}
+
+/* Small Devices (Portrait Tablets and Large Phones) */
+@media (min-width: 601px) and (max-width: 768px) {
+  #root {
+    padding: 0.5rem;
+  }
+
+  .table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .charts-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .summary-cards-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+/* Medium Devices (Landscape Tablets) */
+@media (min-width: 769px) and (max-width: 991px) {
+  #root {
+    padding: 0.5rem;
+  }
+
+  .table {
+    display: table;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .charts-section {
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .summary-cards-wrapper {
+    gap: 1rem;
+  }
+}
