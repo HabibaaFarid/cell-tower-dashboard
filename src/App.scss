@@ -1,0 +1,130 @@
+// Variables
+$section-background-color: #e7e9eb;
+$card-background: #fff;
+$card-border-radius: 10px;
+$card-border: 1px solid #eee;
+$table-border: 2px solid black;
+$table-cell-border: 1px solid black;
+$active-bg: #d4edda;
+$active-color: #155724;
+$offline-bg: #f8d7da;
+$offline-color: #721c24;
+
+// Mixins
+@mixin input-styling {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 2px;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+@mixin card {
+  border-radius: $card-border-radius;
+  border: $card-border;
+  background-color: $card-background;
+  padding: 1rem;
+}
+
+// Layout
+#root {
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+h3 {
+  text-align: left;
+}
+
+.section {
+  background-color: $section-background-color;
+  padding: 1rem;
+  border-radius: $card-border-radius;
+  margin-bottom: 10px;
+}
+
+// Summary Cards
+.summary-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+
+.summary-card {
+  flex: 1;
+  margin: 0 1rem;
+  @include card;
+
+  .summary-card-title {
+    font-weight: 600;
+    font-size: large;
+  }
+  .summary-card-data {
+    font-weight: 500;
+    font-size: medium;
+    color: #3a3b3c;
+  }
+}
+
+// Filters
+.filter-section {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+
+  input,
+  select {
+    @include input-styling;
+  }
+  select {
+    width: 220px;
+  }
+}
+
+// Table
+.table {
+  width: 100%;
+  border: $table-border;
+  overflow-x: auto;
+
+  th,
+  td {
+    border: $table-cell-border;
+    padding: 0.75rem;
+    text-align: center;
+    text-transform: capitalize;
+
+    &.active {
+      background-color: $active-bg;
+      color: $active-color;
+    }
+    &.offline {
+      background-color: $offline-bg;
+      color: $offline-color;
+    }
+  }
+
+  .table-header {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    background-color: $card-background;
+  }
+}
+
+//Charts
+.charts-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 0 4rem;
+}
+
