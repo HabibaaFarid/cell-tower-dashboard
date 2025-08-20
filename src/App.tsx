@@ -11,7 +11,7 @@ import towersData from "./data/Towers";
 function App() {
   const allTowers: CellTower[] = towersData;
   const [towers, setTowers] = useState<CellTower[]>(allTowers);
-  
+
   return (
     <div className="app">
       <Header allTowers={towers} />
@@ -23,6 +23,7 @@ function App() {
         <h3>Charts</h3>
         <div className="charts-section">
           <BarChart towers={towers} />
+          <div className="divider" />
           <PieChart towers={towers} />
         </div>
       </div>

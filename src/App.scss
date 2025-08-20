@@ -3,8 +3,8 @@ $section-background-color: #f0f5fa;
 $card-background: #fff;
 $card-border-radius: 10px;
 $card-border: 1px solid #eee;
-$table-border: 2px solid 	#375c8c;
-$table-cell-border: 1px solid 	#375c8c;
+$table-border: 2px solid #375c8c;
+$table-cell-border: 1px solid #375c8c;
 $active-bg: #d6eefc;
 $active-color: #0a3d62;
 $offline-bg: #c4d4e4;
@@ -20,6 +20,7 @@ $offline-color: #1f3c88;
   line-height: 1.5;
   background-color: #fff;
   box-sizing: border-box;
+  height: 50px;
 }
 
 @mixin card {
@@ -27,6 +28,11 @@ $offline-color: #1f3c88;
   border: $card-border;
   background-color: $card-background;
   padding: 1rem;
+}
+
+@mixin table-styling {
+  width: 100%;
+  overflow-x: scroll;
 }
 
 // Layout
@@ -135,6 +141,12 @@ h3 {
   align-items: center;
   margin-top: 2rem;
   padding: 0 4rem;
+
+  .divider {
+    width: 2px;
+    height: 300px;
+    background: #375c8c;
+  }
 }
 
 .status-wrapper {
@@ -160,21 +172,23 @@ h3 {
   }
 }
 
-//---------------------------Responsive Styling----------------------------------------------
+//---------------------------Responsive Styling----------------------------------
 @media (max-width: 600px) {
   #root {
     padding: 0.5rem;
   }
 
   .table {
+    @include table-styling;
     display: block;
-    width: 100%;
-    overflow-x: auto;
   }
 
   .charts-section {
     justify-content: center;
     align-items: center;
+    .divider {
+      display: none;
+    }
   }
 
   .chart {
@@ -207,9 +221,8 @@ h3 {
   }
 
   .table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
+    @include table-styling;
+    display: table;
   }
 
   .charts-section {
@@ -217,6 +230,9 @@ h3 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
+    .divider {
+      display: none;
+    }
   }
 
   .summary-cards-wrapper {
@@ -233,15 +249,15 @@ h3 {
   }
 
   .table {
+    @include table-styling;
     display: table;
-    width: 100%;
-    overflow-x: auto;
   }
 
   .charts-section {
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+   
   }
 
   .summary-cards-wrapper {
